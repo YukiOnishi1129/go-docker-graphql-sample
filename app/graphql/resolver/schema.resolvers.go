@@ -6,7 +6,9 @@ package resolver
 import (
 	"context"
 	"fmt"
+	"strconv"
 
+	"github.com/YukiOnishi1129/go-docker-graphql-sample/app/entities"
 	"github.com/YukiOnishi1129/go-docker-graphql-sample/app/graphql/generated"
 	"github.com/YukiOnishi1129/go-docker-graphql-sample/app/graphql/model"
 )
@@ -21,7 +23,26 @@ func (r *mutationResolver) CreateUser(ctx context.Context, input model.NewUser) 
 }
 
 func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
-	panic(fmt.Errorf("not implemented"))
+	var todos []entities.Todo
+	if err := r.DB.Joins("User").Find(&todos).Error; err != nil {
+		return nil, err
+	}
+
+	var results []*model.Todo
+	for _, todo := range todos {
+		var newTodo model.Todo
+		var newUser model.User
+		newTodo.ID = strconv.Itoa(int(todo.BaseModel.ID))
+		newTodo.Title = todo.Title
+		newTodo.Comment = todo.Comment
+		newUser.ID = strconv.Itoa(int(todo.User.BaseModel.ID))
+		newUser.Name = todo.User.Name
+		newUser.Email = todo.User.Email
+		newTodo.User = &newUser
+		results = append(results, &newTodo)
+	}
+
+	return results, nil
 }
 
 func (r *queryResolver) Todo(ctx context.Context, id string) (*model.Todo, error) {
