@@ -5,7 +5,7 @@ import (
 	"strconv"
 
 	"github.com/YukiOnishi1129/go-docker-graphql-sample/app/db"
-	"github.com/YukiOnishi1129/go-docker-graphql-sample/app/models"
+	"github.com/YukiOnishi1129/go-docker-graphql-sample/app/entities"
 	"golang.org/x/crypto/bcrypt"
 	"gorm.io/gorm"
 )
@@ -13,7 +13,7 @@ import (
 func userSeeds(db *gorm.DB) error {
 	for i := 0; i < 10; i++ {
 		hash, _ := bcrypt.GenerateFromPassword([]byte("password"), bcrypt.DefaultCost)
-		user := models.User {
+		user := entities.User {
 			Name: "ユーザー"+strconv.Itoa(i+1),
 			Email: "sample"+strconv.Itoa(i+1)+"@gmail.com",
 			Password: string(hash),
@@ -35,7 +35,7 @@ func todoSeeds(db *gorm.DB) error {
 		} else {
 			userId = 2
 		}
-		todo := models.Todo {
+		todo := entities.Todo {
 			Title: "タイトル"+strconv.Itoa(i+1),
 			Comment: "コメント"+strconv.Itoa(i+1),
 			UserId: userId,

@@ -2,12 +2,12 @@ package main
 
 import (
 	"github.com/YukiOnishi1129/go-docker-graphql-sample/app/db"
-	"github.com/YukiOnishi1129/go-docker-graphql-sample/app/models"
+	"github.com/YukiOnishi1129/go-docker-graphql-sample/app/entities"
 	"gorm.io/gorm"
 )
 
 func migrate(db *gorm.DB) {
-	db.AutoMigrate(&models.User{}, &models.Todo{})
+	db.AutoMigrate(&entities.User{}, &entities.Todo{})
 }
 
 func main() {
