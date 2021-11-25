@@ -7,15 +7,32 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/YukiOnishi1129/go-docker-graphql-sample/app/graph/generated"
-	"github.com/YukiOnishi1129/go-docker-graphql-sample/app/graph/model"
+	"github.com/YukiOnishi1129/go-docker-graphql-sample/app/graphql/generated"
+	"github.com/YukiOnishi1129/go-docker-graphql-sample/app/graphql/model"
 )
 
 func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) (*model.Todo, error) {
+	fmt.Print("aaaaaa")
+	panic(fmt.Errorf("not implemented"))
+}
+
+func (r *mutationResolver) CreateUser(ctx context.Context, input model.NewUser) (*model.User, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
 func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+
+func (r *queryResolver) Todo(ctx context.Context, id string) (*model.Todo, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+
+func (r *queryResolver) Users(ctx context.Context) ([]*model.User, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+
+func (r *queryResolver) User(ctx context.Context, id string) (*model.User, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 

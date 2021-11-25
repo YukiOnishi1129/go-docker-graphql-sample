@@ -4,25 +4,36 @@
 
 type Todo {
   id: ID!
-  text: String!
-  done: Boolean!
+  title: String!
+  comment: String!
   user: User!
 }
 
 type User {
   id: ID!
   name: String!
+  email: String!
 }
 
 type Query {
   todos: [Todo!]!
+  todo(id: ID!): Todo!
+  users: [User!]!
+  user(id: ID!): User!
 }
 
 input NewTodo {
-  text: String!
+  title: String!
+  comment: String!
   userId: String!
+}
+
+input NewUser {
+  name: String!
+  email: String!
 }
 
 type Mutation {
   createTodo(input: NewTodo!): Todo!
+  createUser(input: NewUser!): User!
 }
