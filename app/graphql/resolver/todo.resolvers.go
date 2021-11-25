@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/YukiOnishi1129/go-docker-graphql-sample/app/entities"
+	"github.com/YukiOnishi1129/go-docker-graphql-sample/app/db/entities"
 	"github.com/YukiOnishi1129/go-docker-graphql-sample/app/graphql/generated"
 	"github.com/YukiOnishi1129/go-docker-graphql-sample/app/graphql/model"
 )

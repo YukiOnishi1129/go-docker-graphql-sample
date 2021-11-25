@@ -5,7 +5,7 @@ import (
 	"strconv"
 
 	"github.com/YukiOnishi1129/go-docker-graphql-sample/app/db"
-	"github.com/YukiOnishi1129/go-docker-graphql-sample/app/entities"
+	"github.com/YukiOnishi1129/go-docker-graphql-sample/app/db/entities"
 	"golang.org/x/crypto/bcrypt"
 	"gorm.io/gorm"
 )

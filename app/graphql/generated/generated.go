@@ -302,9 +302,9 @@ func (ec *executionContext) introspectType(name string) (*introspection.Type, er
 }
 
 var sources = []*ast.Source{
-	{Name: "graphql/scalar.graphql", Input: `scalar DateTime
+	{Name: "graphql/schemas/scalar.graphql", Input: `scalar DateTime
 `, BuiltIn: false},
-	{Name: "graphql/todo.graphql", Input: `# scalar DateTime
+	{Name: "graphql/schemas/todo.graphql", Input: `# scalar DateTime
 
 type Todo {
   id: ID!
@@ -330,7 +330,7 @@ extend type Mutation {
   createTodo(input: NewTodo!): Todo!
 }
 `, BuiltIn: false},
-	{Name: "graphql/user.graphql", Input: `# scalar DateTime
+	{Name: "graphql/schemas/user.graphql", Input: `# scalar DateTime
 
 type User {
   id: ID!
