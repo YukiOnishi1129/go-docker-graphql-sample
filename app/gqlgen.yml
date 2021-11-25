@@ -1,6 +1,6 @@
 # Where are all the schema files located? globs are supported eg  src/**/*.graphqls
 schema:
-  - ./*.graphql
+  - graphql/*.graphql
 
 # Where should the generated server code go?
 exec:
@@ -22,6 +22,7 @@ resolver:
   layout: follow-schema
   dir: graphql/resolver
   package: resolver
+  filename_template: "{name}.resolvers.go"
 
 # Optional: turn on use `gqlgen:"fieldName"` tags in your models
 # struct_tag: json
@@ -54,3 +55,6 @@ models:
       - github.com/99designs/gqlgen/graphql.Int
       - github.com/99designs/gqlgen/graphql.Int64
       - github.com/99designs/gqlgen/graphql.Int32
+  # DateTime:
+  #   model:
+  #     - github.com/YukiOnishi1129/go-docker-graphql-sample/app/graphql/model.DateTime

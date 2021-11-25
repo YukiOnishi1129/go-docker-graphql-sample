@@ -1,0 +1,23 @@
+# scalar DateTime
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  # createdAt: DateTime!
+  # updatedAt: DateTime!
+}
+
+extend type Query {
+  users: [User!]!
+  user(id: ID!): User!
+}
+
+input NewUser {
+  name: String!
+  email: String!
+}
+
+extend type Mutation {
+  createUser(input: NewUser!): User!
+}
