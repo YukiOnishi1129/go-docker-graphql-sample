@@ -5,8 +5,8 @@ type Todo {
   title: String!
   comment: String!
   user: User!
-  # createdAt: DateTime!
-  # updatedAt: DateTime!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 extend type Query {

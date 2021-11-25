@@ -31,9 +31,13 @@ func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
 		newTodo.ID = strconv.Itoa(int(todo.BaseModel.ID))
 		newTodo.Title = todo.Title
 		newTodo.Comment = todo.Comment
+		newTodo.CreatedAt = todo.CreatedAt.String()
+		newTodo.UpdatedAt = todo.UpdatedAt.String()
 		newUser.ID = strconv.Itoa(int(todo.User.BaseModel.ID))
 		newUser.Name = todo.User.Name
 		newUser.Email = todo.User.Email
+		newUser.CreatedAt = todo.User.CreatedAt.String()
+		newUser.UpdatedAt = todo.User.UpdatedAt.String()
 		newTodo.User = &newUser
 		results = append(results, &newTodo)
 	}

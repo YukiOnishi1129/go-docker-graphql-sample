@@ -4,8 +4,8 @@ type User {
   id: ID!
   name: String!
   email: String!
-  # createdAt: DateTime!
-  # updatedAt: DateTime!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 extend type Query {
